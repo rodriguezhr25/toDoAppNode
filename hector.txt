@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-Prueba de texto
-test 2 David Carsin
-=======
-Esto es una prueba
->>>>>>> 62a3e9a0deeb293a1e1359f38ad6a1d2b0a57f62
+
