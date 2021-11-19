@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -171,4 +170,5 @@ class User {
     }
 }
 
+>>>>>>> 58dbb0b7dbfef9105531a0ceb479ce8b8c01ca4e
 module.exports = User; */

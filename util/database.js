@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
@@ -24,4 +25,32 @@ const getDb = () => {
     throw 'No database found!!'
 }
 exports.mongoConnect = mongoConnect;
+=======
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
+
+let _db;
+
+const mongoConnect = (callback) => {
+
+    MongoClient.connect('mongodb+srv://hector:Cantaura2021@cluster0.edtor.mongodb.net/shop?retryWrites=true&w=majority')
+        .then(client => {
+            console.log('Connected!!');
+            _db = client.db();
+            callback();
+        })
+        .catch(err => {
+            console.log(err);
+            throw err;
+        });
+}
+
+const getDb = () => {
+    if(_db){
+        return _db;
+    }
+    throw 'No database found!!'
+}
+exports.mongoConnect = mongoConnect;
+>>>>>>> 58dbb0b7dbfef9105531a0ceb479ce8b8c01ca4e
 exports.getDb = getDb;
