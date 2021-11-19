@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
@@ -108,4 +107,4 @@ mongoose.connect('mongodb+srv://hector:Cantaura2021@cluster0.edtor.mongodb.net/s
 .catch(err => {
   console.log(err);
 });
->>>>>>> 58dbb0b7dbfef9105531a0ceb479ce8b8c01ca4e
+
