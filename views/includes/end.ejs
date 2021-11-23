@@ -1,0 +1,27 @@
+<footer class="main-footer">
+    <button id="side-menu-toggle">Task</button>
+    <nav class="main-footer__nav">
+        <ul class="main-footer__item-list">
+            <li class="main-footer__item">
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/">All</a>
+            </li>
+            <li class="main-footer__item">
+                <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Active</a>
+            </li>
+            <li class="main-footer__item">
+                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Completed</a>
+            </li>
+            <li class="main-footer__item">
+                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Deleted</a>
+            </li>
+            <li class="main-footer__item">
+                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add
+                    Task</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+<script src="/js/main.js"></script>
+</body>
+
+</html>
