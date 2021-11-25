@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   app.use(shopRoutes);
 app.use(errorController.get404);
 const PORT = process.env.PORT || 5000; // So we can run on heroku || (OR) localhost:5000
-
+//fixin errors
 mongoose.connect('mongodb+srv://hector:Cantaura2021@cluster0.edtor.mongodb.net/shop?retryWrites=true&w=majority')
 .then(result => {
   User.findOne().then(user => {
