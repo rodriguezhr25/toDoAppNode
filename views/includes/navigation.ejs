@@ -1,7 +1,8 @@
 <header class="main-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="<%= path === '/' ? 'active' : '' %> navbar-brand" href="/"><img src="https://as1.ftcdn.net/v2/jpg/02/70/31/54/1000_F_270315494_SUSL6luG0tgBNmg3byJ82hLQ4edv87HR.jpg"
+            <a class="<%= path === '/' ? 'active' : '' %> navbar-brand" href="/"><img
+                    src="https://as1.ftcdn.net/v2/jpg/02/70/31/54/1000_F_270315494_SUSL6luG0tgBNmg3byJ82hLQ4edv87HR.jpg"
                     alt="" width="30" height="24" class="d-inline-block align-text-top">ToDo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,22 +16,22 @@
                     <li class="nav-item">
                         <a class="<%= path === '/products' ? 'active' : '' %> nav-link" href="/products">List</a>
                     </li>
-                    <% if (isAuthenticated) { %>
-                        <li class="main-header__item">
-                            <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
-                        </li>
-                        <li class="main-header__item">
-                            <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
-                        </li>
-                        <li class="main-header__item">
-                            <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product
-                            </a>
-                        </li>
-                        <li class="main-header__item">
-                            <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products
-                            </a>
-                        </li>
-                    <% } %>
+                    <li class="main-header__item">
+                        <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+                    </li>
+                    <li class="main-header__item">
+                        <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+                    </li>
+                    <li class="main-header__item">
+                        <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add
+                            Product
+                        </a>
+                    </li>
+                    <li class="main-header__item">
+                        <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin
+                            Products
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
