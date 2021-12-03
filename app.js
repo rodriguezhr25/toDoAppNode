@@ -17,8 +17,6 @@ const shopRoutes = require('./routes/shop');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 app.use((req, res, next) => {
      User.findById('618dcf5735703c6ec46963e1')
        .then(user => {
@@ -52,4 +50,6 @@ mongoose.connect('mongodb+srv://hector:Cantaura2021@cluster0.edtor.mongodb.net/s
 .catch(err => {
   console.log(err);
 });
+
+
 
