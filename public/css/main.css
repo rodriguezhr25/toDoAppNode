@@ -19,12 +19,10 @@ main {
 form {
   display: inline;
 }
-
 .remove {
   border: 1px solid red;
   color: red;
 }
-
 .main-header {
   width: 100%;
   /* height: 3.5rem; */
