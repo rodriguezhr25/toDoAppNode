@@ -7,7 +7,20 @@
 
             <main>
                 <% if (prods.length> 0){ %>
-                    <div class="grid">
+                    <div class="list-group">
+                        <% for(let product of prods) { %>
+                            <a href="/products/<%= product._id %>" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                  <h5 class="mb-1"><%= product.title %></h5>
+                                  <small>$<%= product.price %></small>
+                                </div>
+                                <p class="mb-1"><%= product.description %></p>
+                                <small><%- include('../includes/add-to-cart.ejs', {product: product}) %></small>
+                              </a>
+                        <% } %>
+
+                    </div>
+                    <!-- <div class="grid">
                         <% for(let product of prods) { %>
                             <article class="card product-item">
                                 <header class="card__header">
@@ -30,8 +43,8 @@
                                     <%- include('../includes/add-to-cart.ejs', {product: product}) %>
                                 </div>
                             </article>
-                            <% } %>
-                    </div>
+                        <% } %>
+                    </div> -->
                     <% }else{ %>
                         <h1>Not Products Found</h1>
                         <% }%>

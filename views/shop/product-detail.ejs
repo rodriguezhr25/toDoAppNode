@@ -7,14 +7,28 @@
     <%- include('../includes/navigation.ejs') %>
 
     <main class="centered">
-        <h1><%= product.title %> </h1>
+        <!-- <h1><%= product.title %> </h1>
         <hr>
         <div>
-            <img src ="<%= product.imageUrl %>" alt="<% product.title %>" >            
+            <img src ="<%= product.imageUrl %>" alt="<% product.title %>" class="img-thumbnail">            
         </div>
         <h2> $<%= product.price %></h2>
         <p><%= product.description %></p>
-        <%- include('../includes/add-to-cart.ejs') %>
+        <%- include('../includes/add-to-cart.ejs') %> -->
+        <div class="card text-center">
+            <div class="card-header">
+              Thing to do
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= product.title %></h5>
+              <img src ="<%= product.imageUrl %>" alt="<% product.title %>" class="card-img-top">
+              <p class="card-text"><%= product.description %></p>
+              <a href="#" class="btn btn-primary"><%- include('../includes/add-to-cart.ejs') %></a>
+            </div>
+            <div class="card-footer text-muted">
+                $<%= product.price %>
+            </div>
+          </div>
     </main>
 
 <%- include('../includes/end.ejs') %>

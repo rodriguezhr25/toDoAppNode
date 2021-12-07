@@ -9,6 +9,7 @@
         <% if (prods.length> 0){ %>
             <div class="grid">
                 <% for(let product of prods) { %>
+
                     <article class="card product-item">
                         <header class="card__header">
                             <h1 class="product__title">
@@ -28,8 +29,7 @@
                             <form action="/admin/delete-product" method="POST">
                                 <input type="hidden" value="<%= product._id %>" name="productId">
                                <button class="btn danger" type="submit">Delete</button>
-                            </form>
-                                                    
+                            </form>                  
                         </div>
                     </article>
                     <% } %>
