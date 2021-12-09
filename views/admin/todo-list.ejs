@@ -1,42 +1,64 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/cart.css">
+<link rel="stylesheet" href="/css/cart.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
 <body>
     <%- include('../includes/navigation.ejs') %>
-
     <main>
         <% if (todoItems.length> 0){ %>
-            <div class="grid">
-                <ul class="cart__item-list">
+        <div class="grid">
+            <ul class="cart__item-list">
                 <% for(let item of todoItems) { %>
-                   
-                      
-                            <li class="cart__item">
-                                <h1><%= item.title %></h1>
-                                <h2>Due date: <%= moment(item.dueDate).format('ll');%></h2>
-                                <h2>Type: <%= item.type %></h2>
-                                <form action="/admin/delete-item" method="POST">
-                                    <input type="hidden" value="<%= item._id %>" name="todoId">
-                                    <button class="btn danger" type="submit">Delete</button>
-                                </form>
-                                <% if(!item.status) { %>                               
-                                   
-                                <form action="/admin/complete-item" method="POST">
-                                    <input type="hidden" value="<%= item._id %>" name="todoId">
-                                    <input type="hidden" value="<%= item.status %>" name="status">
-                                    <button class="btn success" type="submit">Completed</button>
-                                </form>
-                                <% } %>
-                            </li>
-                 
-                
+                <li class="cart__item">
+                    <h1><%= item.title %></h1>
+                    <h2>Due date: <%= moment(item.dueDate).format('ll');%></h2>
+                    <h2>Type: <%= item.type %></h2>
+                    <form action="/admin/delete-item" method="POST">
+                        <input type="hidden" value="<%= item._id %>" name="todoId">
+                        <button class="btn danger" type="submit">Delete</button>
+                    </form>
+                    <% if(!item.status) { %>
+                    <form action="/admin/complete-item" method="POST">
+                        <input type="hidden" value="<%= item._id %>" name="todoId">
+                        <input type="hidden" value="<%= item.status %>" name="status">
+                        <button class="btn success" type="submit">Completed</button>
+                    </form>
                     <% } %>
-                </ul>
-            </div>
-            <% }else{ %>
-                <h1>Not Products Found</h1>
-                <% }%>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% }else{ %>
+        <h1>Not Products Found</h1>
+        <% }%>
     </main>
+    <% if (todoItems.length> 0){ %>
+    <div class="mobile-grid">
+        <ul class="cart__item-list">
+            <% for(let item of todoItems) { %>
+            <li class="cart__item">
+                <h1><%= item.title %></h1>
+                <h2><%= moment(item.dueDate).format('ll');%></h2>
+                <h2><%= item.type %></h2>
+                <form action="/admin/delete-item" method="POST">
+                    <input type="hidden" value="<%= item._id %>" name="todoId">
+                    <button class="btn danger" type="submit"><i class='far fa-trash-alt' style='color:red'></i></button>
+                </form>
+                <% if(!item.status) { %>
+                <form action="/admin/complete-item" method="POST">
+                    <input type="hidden" value="<%= item._id %>" name="todoId">
+                    <input type="hidden" value="<%= item.status %>" name="status">
+                    <button class="btn success" type="submit"><i class='far fa-check-circle'
+                            style='color:green'></i></button>
+                </form>
+                <% } %>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+    <% }else{ %>
+    <h1>Not Products Found</h1>
+    <% }%>
 
-<%- include('../includes/end.ejs') %>
+    <%- include('../includes/end.ejs') %>

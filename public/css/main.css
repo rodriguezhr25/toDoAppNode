@@ -19,6 +19,7 @@ main {
 form {
   display: inline;
 }
+
 .remove {
   border: 1px solid red;
   color: red;
@@ -149,7 +150,8 @@ form {
 .mobile-nav__item a:active,
 .mobile-nav__item a:hover,
 .mobile-nav__item a.active {
-  background: #282b40;;
+  background: #282b40;
+  ;
   color: white;
   border-radius: 3px;
 }
@@ -193,6 +195,7 @@ form {
   align-items: stretch;
 }
 
+
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
@@ -226,7 +229,8 @@ form {
 .card__actions a {
   margin: 0 0.25rem;
 }
-.centered{
+
+.centered {
   text-align: center;
 }
 
@@ -241,24 +245,29 @@ form {
   border-radius: 3px;
   cursor: pointer;
 }
+
 .btn.danger {
   color: red;
   border-color: red;
 }
+
 .btn.success {
   color: green;
   border-color: green;
 }
+
 .btn.success:hover,
 .btn.success:active {
   background: green;
   color: white;
 }
+
 .btn.danger:hover,
 .btn.danger:active {
   background: red;
   color: white;
 }
+
 .btn:hover,
 .btn:active {
   background-color: #00695c;
@@ -276,5 +285,13 @@ form {
 
   #side-menu-toggle {
     display: none;
+  }
+  .mobile-grid {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+  }
+  
+  .mobile-grid.open {
+    transform: translateX(0);
   }
 }
