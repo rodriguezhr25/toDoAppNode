@@ -1,4 +1,4 @@
-const backdrop = document.querySelector('.backdrop');
+/*const backdrop = document.querySelector('.backdrop');
 const sideDrawer = document.querySelector('.mobile-nav');
 const menuToggle = document.querySelector('#side-menu-toggle');
 
@@ -13,4 +13,4 @@ function menuToggleClickHandler() {
 }
 
 backdrop.addEventListener('click', backdropClickHandler);
-menuToggle.addEventListener('click', menuToggleClickHandler);
+menuToggle.addEventListener('click', menuToggleClickHandler);*/
