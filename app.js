@@ -11,14 +11,14 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
-const shopRoutes = require('./routes/shop');
+const shopRoutes = require('./routes/todo');
 
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-     User.findById('618dcf5735703c6ec46963e1')
+     User.findById('61b1720d934345c6a033db77')
        .then(user => {
          req.user = user;        
          next();
@@ -30,14 +30,14 @@ app.use((req, res, next) => {
 app.use(errorController.get404);
 const PORT = process.env.PORT || 5000; // So we can run on heroku || (OR) localhost:5000
 //fixin errors
-mongoose.connect('mongodb+srv://hector:Cantaura2021@cluster0.edtor.mongodb.net/shop?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://hector:Cantaura2021@cluster0.edtor.mongodb.net/todolist?retryWrites=true&w=majority')
 .then(result => {
   User.findOne().then(user => {
     if(!user){
       const user = new User({
         name: 'Hector',
         email: 'hr@gmail.com',
-        cart: {
+        todoList: {
           items: []
         }
       });

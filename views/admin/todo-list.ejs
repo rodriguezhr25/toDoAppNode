@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if (todoItems.length> 0){ %>
+            <div class="grid">
+                <ul class="cart__item-list">
+                <% for(let item of todoItems) { %>
+                   
+                      
+                            <li class="cart__item">
+                                <h1><%= item.title %></h1>
+                                <h2>Due date: <%= moment(item.dueDate).format('ll');%></h2>
+                                <h2>Type: <%= item.type %></h2>
+                                <form action="/admin/delete-item" method="POST">
+                                    <input type="hidden" value="<%= item._id %>" name="todoId">
+                                    <button class="btn danger" type="submit">Delete</button>
+                                </form>
+                                <% if(!item.status) { %>                               
+                                   
+                                <form action="/admin/complete-item" method="POST">
+                                    <input type="hidden" value="<%= item._id %>" name="todoId">
+                                    <input type="hidden" value="<%= item.status %>" name="status">
+                                    <button class="btn success" type="submit">Completed</button>
+                                </form>
+                                <% } %>
+                            </li>
+                 
+                
+                    <% } %>
+                </ul>
+            </div>
+            <% }else{ %>
+                <h1>Not Products Found</h1>
+                <% }%>
+    </main>
+
+<%- include('../includes/end.ejs') %>
