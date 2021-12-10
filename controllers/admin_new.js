@@ -11,6 +11,31 @@ exports.getAddTodo = (req, res, next) => {
     })
 
 };
+exports.getEditTodo = (req, res, next) => {
+    const editMode = req.query.edit;
+    if (!editMode) {
+        res.redirect('/');
+    }
+    const todoId = req.params.todoId;
+    Todo.findById(todoId)
+        .then(todo => {
+            if (!todo) {
+                return res.redirect('/');
+            }
+            res.render('admin/edit-todo', {
+                pageTitle: 'Edit Item',
+                path: '/admin/edit-todo',
+                editing: editMode,
+                todo: todo,
+                moment: moment 
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
+}
+
 
 exports.postAddTodo = (req, res, next) => {
 
@@ -39,6 +64,36 @@ exports.postAddTodo = (req, res, next) => {
         .catch(err => {
             console.log(err);
         });
+};
+
+exports.postEditTodo = (req, res, next) => {
+    const todoId = req.body.todoId;
+    const title = req.body.title;
+    const subject = req.body.subject;
+    const type = req.body.type;
+    const dueDate = req.body.dueDate;
+    const description = req.body.description;
+   
+   
+    Todo.findById(todoId)
+    .then(item => {
+        
+        item.title= title;
+        item.subject= subject;
+        item.type = type;
+        item.dueDate = dueDate;
+        item.description= description;
+        return item.save()
+    })
+    .then(result => {
+        console.log('Updated item');
+        res.redirect('/admin/todos');
+    })
+    .catch(err => {
+            console.log(err);
+    });
+
+
 };
 exports.getTodoList = (req, res, next) => {
     

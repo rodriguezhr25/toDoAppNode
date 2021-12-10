@@ -8,20 +8,19 @@ const adminController = require('../controllers/admin_new');
 const router = express.Router();
 const moment = require('moment');
 
-// /admin/add-product => GET
- router.get('/add-todo', adminController.getAddTodo );
 
-// // /admin/products => GET
+ router.get('/add-todo', adminController.getAddTodo );
+  router.get('/edit-todo/:todoId', adminController.getEditTodo); 
   router.get('/todos', adminController.getTodoList); 
   router.get('/active', adminController.getTodoActive); 
   router.get('/completed', adminController.getTodoCompleted); 
-// // /admin/add-product => POST
- router.post('/add-todo', adminController.postAddTodo);
 
+ router.post('/add-todo', adminController.postAddTodo);
+ router.post('/edit-todo', adminController.postEditTodo);
  router.post('/delete-item', adminController.postDeleteTodo);
 
  router.post('/complete-item', adminController.postCompleteTodo);
-// router.get('/edit-product/:productId', adminController.getEditProduct); 
+
 
 // // /admin/add-product => POST
 //router.post('/edit-product', adminController.postEditProduct);
