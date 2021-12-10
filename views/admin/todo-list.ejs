@@ -1,5 +1,6 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/cart.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     </head>
 
     <body>
@@ -26,17 +27,20 @@
                                     <p id="desc">
                                         <%= item.description %>
                                     </p>
+
                                     <form action="/admin/delete-item" method="POST" id="btnDel">
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                         <input type="hidden" value="<%= item._id %>" name="todoId">
-                                        <button class="btn danger btn-sm" type="submit">Delete</button>
+                                        <button class="btn danger btn-sm" type="submit"><i class='far fa-trash-alt' style='color:red'></i></button>
                                     </form>
                                     <a href="/admin/edit-todo/<%= item._id %>?edit=true" class="btn info btn-sm">Edit</a>
                                     <% if(!item.status) { %>
 
                                         <form action="/admin/complete-item" method="POST">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                             <input type="hidden" value="<%= item._id %>" name="todoId">
                                             <input type="hidden" value="<%= item.status %>" name="status">
-                                            <button class="btn success btn-sm" type="submit" id="btnComp">Completed</button>
+                                            <button class="btn success btn-sm" type="submit" id="btnComp"><i class='far fa-check-circle'style='color:green'></i></button>
                                         </form>
                                         <% } %>
                                 </li>

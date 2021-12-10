@@ -107,6 +107,14 @@ form {
     color: #ffeb3b;
 }
 
+.main-header__item button{
+    border-style: none;
+    background-color: #282b40;
+    color: #ffeb3b;
+    margin: 0 1rem;
+    padding: 0;
+}
+
 .mobile-nav {
     width: 30rem;
     height: 100vh;
@@ -282,11 +290,90 @@ form {
 }
 
 .main-header__nav h1 {
-    color: white;
+    color: #56baed;
     font-size: medium;
     text-align: center;
     margin: 5px;
 }
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+  }
+  
+  #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+  }
+
+  input[type=email], input[type=password] {
+    background-color: #928c8c;
+    border: none;
+    color: #0d0d0d;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+  }
+  
+  input[type=email]:focus, input[type=password]:focus{
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+  }
+  
+  input[type=email]:placeholder, input[type=password]::placeholder {
+    color: #cccccc;
+  }
+
+  #btnLogin, #btnSignup {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 8px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 0px 10px 60px;
+  }
+
+  #btnLogin:hover, #btnSignup:hover{
+    background-color: #267eaa;
+  }
+
+  .centered {
+      margin-right: 50px ;
+      text-decoration: none;
+  }
+
+  .centered :hover{
+      color: #928c8c;
+  }
 
 @media (min-width: 768px) {
     .main-header__nav {
