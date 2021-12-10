@@ -1,11 +1,13 @@
 const express = require('express');
 const { check, body } = require('express-validator/check');
-
+const adminController = require('../controllers/admin_new');
 const authController = require('../controllers/auth');
 const User = require('../models/user');
 
 const router = express.Router();
+
 router.get('/', authController.getLogin);
+
 router.get('/login', authController.getLogin);
 
 router.get('/signup', authController.getSignup);
