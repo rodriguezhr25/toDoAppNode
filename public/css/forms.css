@@ -3,22 +3,30 @@
 }
 
 .form-control label,
-.form-control input, textarea, select {
+.form-control input,
+textarea,
+select {
     display: block;
     width: 100%;
     margin-bottom: 0.25rem;
 }
 
-.form-control input, textarea, select {
+.form-control input,
+textarea,
+select {
     border: 1px solid #a1a1a1;
     font: inherit;
     border-radius: 2px;
 }
 
-.form-control input:focus , textarea:focus, select:focus{
+.form-control input:focus,
+textarea:focus,
+select:focus {
     outline-color: #00695c;
 }
-.error{
+
+.error {
     color: red;
-    font-size: bold;;
+    font-size: bold;
+    ;
 }

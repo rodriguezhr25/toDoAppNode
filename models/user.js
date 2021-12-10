@@ -3,49 +3,47 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
         required: true
     },
+    password: {
+        type: String,
+        required: true
+    },
+    resetToken: String,
+    resetTokenExpiration: Date,
     todoList: {
-        items:
-            [
-                {
-                    todoId: { 
-                        type: Schema.Types.ObjectId , 
-                        ref: 'Todo' , 
-                        required: true
-                    },
-                    title: {
-                        type: String,
-                        required: true
-                    },                  
-                    dueDate:{
-                        type: Date,
-                        required: true,
-                        min: '2021-11-30',
-                        max: '2100-01-01'
-                    },                  
-                }
-            ]
+        items: [{
+            todoId: {
+                type: Schema.Types.ObjectId,
+                ref: 'Todo',
+                required: true
+            },
+            title: {
+                type: String,
+                required: true
+            },
+            dueDate: {
+                type: Date,
+                required: true,
+                min: '2021-11-30',
+                max: '2100-01-01'
+            },
+        }]
 
     }
- 
+
 
 });
 
 userSchema.methods.addToList = function(todo) {
     const updatedTodoItems = [...this.todoList.items];
-    updatedTodoItems.push(
-            {
-                todoId: todo._id,
-                title: todo.title,
-                dueDate: todo.dueDate
-            });
+    updatedTodoItems.push({
+        todoId: todo._id,
+        title: todo.title,
+        dueDate: todo.dueDate
+    });
 
 
     const updatedTodo = {
@@ -55,7 +53,7 @@ userSchema.methods.addToList = function(todo) {
     return this.save();
 };
 
-userSchema.methods.deleteItemFromList = function(todoId){
+userSchema.methods.deleteItemFromList = function(todoId) {
     const updatedTodoItems = this.todoList.items.filter(item => {
         return item.todoId.toString() !== todoId.toString();
     });
@@ -66,6 +64,6 @@ userSchema.methods.deleteItemFromList = function(todoId){
 userSchema.methods.clearList = function() {
     this.todoList = { items: [] };
     return this.save();
-  };
-  
+};
+
 module.exports = mongoose.model('User', userSchema);

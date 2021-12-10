@@ -14,8 +14,8 @@
                       
                             <li class="cart__item">
                                 <h1><%= item.title %></h1>
-                                <h2>Due date: <%= moment.utc(item.dueDate).format('ll');%></h2>
-                                <h2>Type: <%= item.type %></h2>
+                                <h2> Due date: <%= moment.utc(item.dueDate).format('ll');%></h2>
+                                <h2> Type: <%= item.type %></h2>
                                 <form action="/admin/delete-item" method="POST">
                                     <input type="hidden" value="<%= item._id %>" name="todoId">
                                     <button class="btn danger" type="submit">Delete</button>

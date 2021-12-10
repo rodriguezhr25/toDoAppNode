@@ -1,22 +1,24 @@
 <footer class="main-footer">
 
     <nav class="main-footer__nav">
-        <ul class="main-footer__item-list">
-            <li class="main-footer__item">
-                <a class="<%= path === '/admin/todos' ? 'active' : '' %>" href="/admin/todos">All</a>
-            </li>
-            <li class="main-footer__item">
-                <a class="<%= path === '/admin/active' ? 'active' : '' %>" href="/admin/active">Active</a>
-            </li>
-            <li class="main-footer__item">
-                <a class="<%= path === '/admin/completed' ? 'active' : '' %>" href="/admin/completed">Completed</a>
-            </li>
+        <% if (isAuthenticated) { %>
+            <ul class="main-footer__item-list">
+                <li class="main-footer__item">
+                    <a class="<%= path === '/admin/todos' ? 'active' : '' %>" href="/admin/todos">All</a>
+                </li>
+                <li class="main-footer__item">
+                    <a class="<%= path === '/admin/active' ? 'active' : '' %>" href="/admin/active">Active</a>
+                </li>
+                <li class="main-footer__item">
+                    <a class="<%= path === '/admin/completed' ? 'active' : '' %>" href="/admin/completed">Completed</a>
+                </li>
 
-            <li class="main-footer__item">
-                <a class="<%= path === '/admin/add-todo' ? 'active' : '' %>" href="/admin/add-todo">Add
+                <li class="main-footer__item">
+                    <a class="<%= path === '/admin/add-todo' ? 'active' : '' %>" href="/admin/add-todo">Add
                     Task</a>
-            </li>
-        </ul>
+                </li>
+            </ul>
+            <% } %>
     </nav>
 </footer>
 
