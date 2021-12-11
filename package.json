@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@mailchimp/mailchimp_marketing": "^3.0.72",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -25,6 +26,7 @@
     "express-session": "^1.17.2",
     "express-validator": "^6.13.0",
     "flash": "^1.1.0",
+    "font-awesome": "^4.7.0",
     "heroku": "^7.59.2",
     "moment": "^2.29.1",
     "mongodb": "^4.2.0",
