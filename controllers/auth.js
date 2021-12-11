@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
+
 const { validationResult } = require('express-validator/check');
 
 const User = require('../models/user');
@@ -10,7 +11,7 @@ const User = require('../models/user');
 const transporter = nodemailer.createTransport(
     sendgridTransport({
         auth: {
-            api_key: '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'
+            api_key: '8870297bec554f3ae35dc476a676a8da-us20'
         }
     })
 );
@@ -94,7 +95,7 @@ exports.postLogin = (req, res, next) => {
                         req.session.user = user;
                         return req.session.save(err => {
                             console.log(err);
-                            res.redirect('/');
+                            res.redirect('/admin/todos');
                         });
                     }
                     return res.status(422).render('auth/login', {
@@ -152,6 +153,7 @@ exports.postSignup = (req, res, next) => {
         })
         .then(result => {
             res.redirect('/login');
+            console.log("Signup Succesfully");
             // return transporter.sendMail({
             //   to: email,
             //   from: 'shop@node-complete.com',
@@ -206,15 +208,7 @@ exports.postReset = (req, res, next) => {
             })
             .then(result => {
                 res.redirect('/');
-                transporter.sendMail({
-                    to: req.body.email,
-                    from: 'shop@node-complete.com',
-                    subject: 'Password reset',
-                    html: `
-            <p>You requested a password reset</p>
-            <p>Click this <a href="http://localhost:5000/reset/${token}">link</a> to set a new password.</p>
-          `
-                });
+                console.log("Password reseted");
             })
             .catch(err => {
                 const error = new Error(err);

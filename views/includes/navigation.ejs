@@ -5,11 +5,9 @@
         <ul class="main-header__item-list">
             <% if (isAuthenticated) { %>
                 <li class="main-header__item">
-                    <a class="<%= path === '/' ? 'active' : '' %> " href="/">Home</a>
+                    <a class="<%= path === '/admin/todos' ? 'active' : '' %>" href="/admin/todos">Home</a>
                 </li>
-                <li class="main-header__item">
-                    <a class="<%= path === '/admin/todos' ? 'active' : '' %>" href="/admin/todos">List</a>
-                </li>
+            
                 <% } %>
 
         </ul>
@@ -40,11 +38,9 @@
     <% if (isAuthenticated) { %>
         <ul class="mobile-nav__item-list">
             <li class="mobile-nav__item">
-                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+                <a class="<%= path === '/admin/todos' ? 'active' : '' %>" href="/admin/todos">Home</a>
             </li>
-            <li class="mobile-nav__item">
-                <a class="<%= path === '/admin/todos' ? 'active' : '' %>" href="/admin/todos">List</a>
-            </li>
+           
         </ul>
         <% } %>
 
